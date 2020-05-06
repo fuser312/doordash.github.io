@@ -28,6 +28,11 @@ observer.observe(targetNode, config);
     pluginKey: '57ac593f-1db0-4ea5-8d44-54b71a1f0b81',
     apiHost: 'https://api-sandbox.argyle.io/v1',
     dataPartners: ['doordash'],
+
+      onAccountConnected: ({accountId, userId}) => {
+          LoginStatus.postMessage('success' + accountId);
+          LoginStatus.postMessage('success');
+      },
     onAccountCreated: ({accountId, userId}) => {
       console.log("Account created: ", accountId, " User ID:", userId);
       AccountID.postMessage(accountId);
